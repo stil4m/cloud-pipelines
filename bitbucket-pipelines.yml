@@ -28,7 +28,7 @@ pipelines:
             - cd elm
             - elm make src/Main.elm
           artifacts:
-            - web/dist/elm.js
+            - elm/index.html
     - step:
         caches:
           - maven
