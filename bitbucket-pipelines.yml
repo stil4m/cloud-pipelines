@@ -22,7 +22,7 @@ pipelines:
           - elm
         script:
           - cd elm
-          - elm make Main.elm
+          - elm make src/Main.elm
         artifacts:
           - web/dist/elm.js
     - step:
