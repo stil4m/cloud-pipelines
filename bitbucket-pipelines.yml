@@ -3,9 +3,36 @@ image: maven:3.3.9
 pipelines:
   default:
     - step:
+        script:
+          - sleep 5
+    - step:
+        script:
+          - sleep 10
+    - step:
+        image: node:10
+        caches:
+          - node
+        script:
+          - cd frontend
+          - npm install
+          - npm run test
+    - step:
+        image: codesimple/elm:0.19
+        caches:
+          - elm
+        script:
+          - cd elm
+          - elm make Main.elm
+        artifacts:
+          - web/dist/elm.js
+    - step:
         caches:
           - maven
         script: # Modify the commands below to build your repository.
           - cd backend
           - mvn -B verify
 
+
+definitions:
+  caches:
+    elm: ~/.elm
