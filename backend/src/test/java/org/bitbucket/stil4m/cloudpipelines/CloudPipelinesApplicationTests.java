@@ -11,7 +11,6 @@ public class CloudPipelinesApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		throw new RuntimeException();
 	}
 
 }
